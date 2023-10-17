@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="airsquared.samplerecorder.app.Main" />
+    <module name="SampleRecorder.main" />
+    <option name="VM_PARAMETERS" value="--add-opens java.base/java.lang.reflect=com.jfoenix" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="airsquared.samplerecorder.app.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,34 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'zulu'
+      - name: Gradle build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build --scan
+      - uses: initdc/upload-artifact@feat/artifact-per-file
+        with:
+          artifact-per-file: true
+          artifact-name-rule: ${{ runner.os }}${ext}
+          path: build/distributions/*
+      - name: Upload reports on failure
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: failure-${{ runner.os }}
+          path: build/reports/
