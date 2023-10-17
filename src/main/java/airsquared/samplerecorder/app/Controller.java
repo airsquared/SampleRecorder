@@ -87,7 +87,11 @@ public class Controller {
         if (player.playing.get()) {
             player.pause();
         } else {
-            player.playFile(new File(pathField.getText()));
+            String path = pathField.getText();
+            if (!path.endsWith(".wav")) {
+                path += ".wav";
+            }
+            player.playFile(new File(path));
         }
     }
 
