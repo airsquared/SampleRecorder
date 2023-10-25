@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import airsquared.samplerecorder.app.Controller?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 <VBox stylesheets="@view.css" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml" fx:controller="airsquared.samplerecorder.app.Controller">
-    <padding>
-        <Insets bottom="20" left="20" right="20" top="20"/>
-    </padding>
-
     <HBox spacing="20">
         <VBox>
             <Label text="Sample Rate"/>

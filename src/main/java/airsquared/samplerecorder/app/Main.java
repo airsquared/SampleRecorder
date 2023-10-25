@@ -33,11 +33,11 @@ public class Main extends Application {
     }
 
     public static void uncaughtException(Thread __, Throwable e) {
-        var old = e;
-        while (e != null && (e instanceof InvocationTargetException || e.getCause() instanceof InvocationTargetException || e instanceof UncheckedIOException || (e.getClass().equals(RuntimeException.class) && e.getMessage() == null && e.getCause() != null))) {
+        while (e != null && e.getCause() != null && (e instanceof InvocationTargetException || e.getCause() instanceof InvocationTargetException
+                || e instanceof UncheckedIOException
+                || e.getClass().equals(RuntimeException.class) && (e.getMessage() == null || e.getMessage().equals(e.getCause().toString())))) {
             e = e.getCause();
         }
-        e = e == null ? old : e;
         e.printStackTrace();
         var text = new StringWriter();
         e.printStackTrace(new PrintWriter(text));
@@ -49,11 +49,10 @@ public class Main extends Application {
             alert.getDialogPane().setExpandableContent(area);
             alert.show();
         };
-        if (Platform.isFxApplicationThread()) {
+        if (Platform.isFxApplicationThread())
             show.run();
-        } else {
+        else
             Platform.runLater(show);
-        }
     }
 
 }

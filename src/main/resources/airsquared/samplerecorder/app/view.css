@@ -1,25 +1,14 @@
 .root {
     -fx-padding: 10 25 10 25;
 }
-.main-vbox {
-    -fx-pref-width: 700;
-    -fx-padding: 20 5 0 0;
-}
 .jfx-button {
     -jfx-button-type: RAISED;
     -fx-background-color: gold;
     -jfx-disable-visual-focus: true;
     -fx-font-family: "Trebuchet MS";
 }
-.jfx-combo-box {
-    -fx-background-color: gold;
-    /*-fx-pref-width: 100;*/
-    -fx-font-family: "Trebuchet MS";
-    -fx-font-size: 21;
-}
 .label {
     -fx-font-family: "Trebuchet MS";
-    /*-fx-text-fill: #5c1375;*/
     -fx-font-size: 16;
     -fx-font-weight: 300;
 }
@@ -31,7 +20,6 @@
     -fx-icon-size: 24;
     -fx-icon-color: darkslategrey;
 }
-
 .path-field {
     -fx-min-width: 250;
 }
